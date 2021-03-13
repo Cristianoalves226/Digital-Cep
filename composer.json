@@ -1,0 +1,23 @@
+{
+    "name": "xcris/digital-cep",
+    "description": "Busca de CEP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cristiano",
+            "email": "c.alvesdecampos@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Seach": "src/"
+        },
+        "psr-4": {
+            "Xcris\\DigitalCep\\": "src/"
+        }
+    }
+}
