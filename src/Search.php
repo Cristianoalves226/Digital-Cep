@@ -2,18 +2,30 @@
 
 namespace Xcris\DigitalCep;
 
+use Xcris\DigitalCep\ws\ViaCep;
 
 class Search
 {
 
-    private $url = "https://viacep.com.br/ws/";
 
-    function getAddressFromZipeCode(string $zipCode): array
+    public function getAddressFromZipeCode(string $zipCode): array
     {
         $zipCode = preg_replace('/[^0-9]/im', '', $zipCode);
 
-        $get = file_get_contents($this->url . $zipCode . "/json");
+        return $this->getFromServer($zipCode);
+    }
 
-        return (array) json_decode($get);
+    private function getFromServer($zipCode)
+    {
+        $get = new ViaCep();
+
+        return $get->get($zipCode);
+    }
+
+    private function processData($data)
+    {
+        foreach ($data as $k => $v) {
+            $data  = trim($v);
+        }
     }
 }
